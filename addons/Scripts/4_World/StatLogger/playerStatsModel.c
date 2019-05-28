@@ -19,6 +19,10 @@ class PlayerStatsModel {
 }
 
 class DeathStatsModel {
+	int longestShot;
+	int playTime;
+	int zKilled;
+	int distTrav;
 	string timeStamp;
 	string posDeath;
     string killer;

@@ -33,7 +33,7 @@ modded class PlayerBase
 				statLogger.KillHandler(sbKilled.GetPlayerID(), sbKiller, castedKiller.GetPosition());	
 			}	
 		}
-        statLogger.DeathHandler(sbKilled.GetPlayerID(), castedKiller, sbKilled.GetPosition());
+        statLogger.DeathHandler(sbKilled, castedKiller, sbKilled.GetPosition());
 
         super.EEKilled(killer);
     }

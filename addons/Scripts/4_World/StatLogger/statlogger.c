@@ -21,16 +21,21 @@ class StatLogger
 		Save(statModel, id);
 }
 
-    void DeathHandler(string victimId, EntityAI killer, vector pos) {
-        statModel = Load(victimId);
+    void DeathHandler(SurvivorBase sbKilled, EntityAI killer, vector pos) {
+        statModel = Load(sbKilled.GetPlayerID());
 		DeathStatsModel death = new DeathStatsModel;
 		death.posDeath = Helper.ConvertVectorPosToString(pos);
-        death.timeStamp = Helper.GetCurrentTime();
+        death.timeStamp = Helper.GetCurrentTime();			
+		death.longestShot = sbKilled.StatGet("longest_survivor_hit");
+		death.zKilled = sbKilled.StatGet("infected_killed");
+		death.playTime = sbKilled.StatGet("playtime");
+		death.distTrav = sbKilled.StatGet("dist");
 		if (killer.IsPlayer()) {
-			ref SurvivorBase sbKiller = SurvivorBase.Cast(killer);
+			ref SurvivorBase sbKiller = SurvivorBase.Cast(killer);			
 			death.killer = sbKiller.GetPlayerID();
 			death.weapon = Helper.GetWeaponInHands(sbKiller);
-			if (victimId == sbKiller.GetPlayerID()) {
+
+			if (sbKilled.GetPlayerID() == sbKiller.GetPlayerID()) {
 				statModel.suicideCount++;
 			}
 			else {
@@ -46,7 +51,7 @@ class StatLogger
 			death.killer = "animal";
 		}
         statModel.deaths.Insert(death);
-        Save(statModel, victimId);
+        Save(statModel, sbKilled.GetPlayerID());
     }
     
     void KillHandler(string victimId, SurvivorBase sbKiller, vector pos) {

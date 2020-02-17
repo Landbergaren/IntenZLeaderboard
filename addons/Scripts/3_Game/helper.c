@@ -3,14 +3,14 @@ class Helper {
 		int year, month, day, hour, minute, second;
         GetYearMonthDay(year, month, day);
 		GetHourMinuteSecond(hour, minute, second);
-		string timeStamp = year.ToString()+":"+month.ToString()+":"+day.ToString()+":"+hour.ToString()+":"+minute.ToString()+":"+second.ToString();
+		string timeStamp = year.ToString()+"-"+month.ToString()+"-"+day.ToString()+" "+hour.ToString()+":"+minute.ToString()+":"+second.ToString();
         return timeStamp;	
     }
 	
-	static string GetWeaponInHands(SurvivorBase sb) {
-		DayZPlayerInventory playerInv = sb.GetInventory();
-        EntityAI handEntity = playerInv.GetEntityInHands();
-		return handEntity.GetType();
+	static EntityAI GetWeaponInHands(Man sb) {
+        HumanInventory inventory = HumanInventory.Cast(sb.GetInventory());
+		EntityAI weapon = inventory.GetEntityInHands();
+		return weapon;
 	}
 	
 	static string ConvertVectorPosToString(vector pos) {

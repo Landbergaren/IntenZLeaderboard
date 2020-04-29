@@ -17,7 +17,7 @@ class CfgMods
 	class IntenzLeaderboard
 	{
 		type = "mod";
-		dependencies[] = {"Game", "World", "Mission"};
+		dependencies[] = {"Game", "World"};
 		
 		class defs
 		{	
@@ -30,11 +30,6 @@ class CfgMods
 			{
 				value = "";
 				files[] = {"Leaderboard_Scripts/4_World"};
-			};
-			class missionScriptModule
-			{
-				value = "";
-				files[] = {"Leaderboard_Scripts/5_Mission"};
 			};
 		};
 	};

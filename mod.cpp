@@ -1,39 +1,9 @@
-class CfgMods
-{
-	class IntenzLeaderboard
-	{
-		
-		dir = "IntenzLeaderboard";
-		picture = "";
-		action = "";
-		hideName = 1;
-		hidePicture = 1;
-		name = "Test Mod";
-		credits = "0";
-		author = "0";
-		authorID = "0"; 
-		version = ""; 
-		extra = 0;
-		type = "mod";
-		dependencies[] = {"Game", "World", "Mission"};
-		
-		class defs
-		{	
-			class gameScriptModule
-			{
-				value = "";
-				files[] = {"@IntenzLeaderboard/addons/Scripts/3_Game"};
-			};
-			class worldScriptModule
-			{
-				value = "";
-				files[] = {"@IntenzLeaderboard/addons/Scripts/4_World"};
-			};
-			class missionScriptModule
-			{
-				value = "";
-				files[] = {"@IntenzLeaderboard/addons/Scripts/5_Mission"};
-			};
-		};
-	};
-};
+name = 		"IntenZ-Leaderboard"; 						// name 
+picture = 	"Leaderboard_Images\Big.tga";		// picture in expanded description
+logoSmall = "Leaderboard_Images\Small.tga";	// icon next to mod name when description is not expanded
+logo = 		"Leaderboard_Images\Small.tga";	// logo below game menu
+logoOver = 	"Leaderboard_Images\Small.tga";	// on mouse hover over logo
+tooltip = 	"Leaderboard mod for IntenZ";			// tool tip on mouse hover
+overview = 	"You are looking for immersion?"; 	// overview
+action = 	"www.DayZIntenZ.com";
+author = 	"QuickZ & Streatman";
